@@ -13,91 +13,89 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
-  </head>  
-    <style> .grid-content { margin: 10px 10px 0 10px;}
-    .main-section { max-width: 1024px; margin: 0 auto;} </style>
+    <style> .main-section {margin-left: 10px; margin-right: 10px;}</style>
+  </head>
   <body ng-controller="MyController"> 
- 
-<!--<div class="grid-frame">-->
+<!-- Left header -->
 <div class="off-canvas-wrap" data-offcanvas>
   <div class="inner-wrap">
     <nav class="tab-bar">
       <section class="left-small">
         <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
       </section>
-
+      <!-- Middle header -->
       <section class="middle tab-bar-section">
-          <!--<h1 class="title">THE JOKER</h1>-->
-            <div id="video-viewport">  
-                <video autoplay preload class="vid_properties" width="320" height="50" id='video_r'>
-                    <source src="img/TheJoker-MV_Banner_v5.mp4"type="video/mp4" /> 
-                </video>   
-            </div>         
-          
-      </section>
-
-      <section class="right-small">
-        <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
-      </section>
+        <div id="video-viewport">  
+          <video autoplay preload class="vid_properties" width="320" height="50" id='video_r'>
+              <source src="img/TheJoker-MV_Banner_v5.mp4"type="video/mp4" /> 
+          </video>   
+        </div>         
+      </section>    
     </nav>
-
-    <aside class="left-off-canvas-menu">
-      <ul class="off-canvas-list">
-        <li><label>Foundation</label></li>
-        <li><a href="#">The Psychohistorians</a></li>
-        <li><a href="#">...</a></li>
-      </ul>
-    </aside>
-
-    <aside class="right-off-canvas-menu">
-      <ul class="off-canvas-list">
-        <li><label>Users</label></li>
-        <li><a href="#">Hari Seldon</a></li>
-        <li><a href="#">...</a></li>
-      </ul>
-    </aside>
  
+    <!-- Aside left header -->
     <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
-        <li><label>The Joker</label></li>
-        <li><a href="#">Topp 10</a></li>
-        <li><a href="#">Lägg till</a></li>
-        <li><a href="#">Logga in</a></li>
-        <li><a href="#">Registrera</a></li>
+        <li><a href="index.html">The Joker</a></li>
+        <li><a href="topten.html">Topp 10</a></li>
+        <li><a href="profile.html">Lägg till</a></li>
+        <li><a href="login.html">Logga in</a></li>
+        <li><a href="register.html">Registrera</a></li>
       </ul>
     </aside> 
-
+    
     <section class="main-section">  
-        <div class="medium-10 grid-block">
-        <h3 class="text-center">Topp 10</h3>
-        <div class="grid-content">
-          <hr />
-          <h4><img src="http://placehold.it/30x30"> Spike</h4>
-          <p>Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue.</p>
-          <hr />
-          <h4><img src="http://placehold.it/30x30"> Cesar</h4>
-          <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
-          <hr />
-          <h4><img src="http://placehold.it/30x30"> Bruce</h4>
-          <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
-          <hr />
-          <h4><img src="http://placehold.it/30x30"> Molly</h4>
-          <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
-          <hr />
-          <h4><img src="http://placehold.it/30x30"> Dexter</h4>
-          <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
-          <hr />
-          <h4><img src="http://placehold.it/30x30"> Felix</h4>
-          <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
-          <hr />
-          <h4><img src="http://placehold.it/30x30"> Mario</h4>
-          <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
-          <hr />
-          <h4><img src="http://placehold.it/30x30"> Peach</h4>
-          <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat.</p>
-          <hr />
-        </div> <!-- grid content --> 
-      </div> <!-- grid block --> 
+        <div class="row">
+            <hr>
+            <h3 class="text-center">Topp 10</h3>
+        </div> 
+        <div class="row">
+              <hr>
+              <h4><img src="http://placehold.it/30x30"> Spike</h4>
+              <p>Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue.</p>
+        </div> 
+         <div class="row">
+              <hr>
+              <h4><img src="http://placehold.it/30x30"> Cesar</h4>
+              <p>Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue.</p>
+        </div>
+         <div class="row">
+              <hr>
+              <h4><img src="http://placehold.it/30x30"> Bruce</h4>
+              <p>Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue.</p>
+        </div> 
+         <div class="row">
+              <hr>
+              <h4><img src="http://placehold.it/30x30"> Molly</h4>
+              <p>Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue.</p>
+        </div> 
+         <div class="row">
+              <hr>
+              <h4><img src="http://placehold.it/30x30"> Dexter</h4>
+              <p>Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue.</p>
+        </div> 
+         <div class="row">
+              <hr>
+              <h4><img src="http://placehold.it/30x30"> Felix</h4>
+              <p>Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue.</p>
+        </div> 
+         <div class="row">
+              <hr>
+              <h4><img src="http://placehold.it/30x30"> Mario</h4>
+              <p>Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue.</p>
+        </div> 
+         <div class="row">
+              <hr>
+              <h4><img src="http://placehold.it/30x30"> Peach</h4>
+              <p>Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue.</p>
+        </div> 
+      </section> <!-- end - main-section -->  
+
+      <footer style="position: fixed;"> 
+      <div class="row">
+        <h4 class="text-center" style="color:#ffffff;">Kontaktinfo: info@thejoker.se</h4> 
+      </div>
+    </footer>
         
     </div> <!-- end -inner-wrap --> 
     <a class="exit-off-canvas"></a>
