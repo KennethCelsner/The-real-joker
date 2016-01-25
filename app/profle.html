@@ -1,0 +1,159 @@
+<!doctype html> 
+<html ng-app="myApp" class="no-js" lang="en">
+<head> 
+    <meta charset="utf-8" />         
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+    <title>The Joker</title>    
+    <link rel="stylesheet" href="css/foundation.css" />    
+    <link rel="stylesheet" href="css/foundation-icons/foundation-icons.css" />
+    <link rel="stylesheet" href="css/stylesheet.css" />
+    <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+    <style> 
+        @charset "UTF-8";
+        .accordion-navigation > a:after {
+          content: "↡";
+          padding-left: 5px;
+          float: right;
+          font-size: 20px; }
+        .accordion-navigation.active > a:after {
+         content: "↟"; }
+    </style> 
+</head>    
+  <body ng-controller="MyController"> 
+<!-- Left header -->
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    <nav class="tab-bar">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+      </section>
+      <!-- Middle header -->
+      <section class="middle tab-bar-section">
+        <div id="video-viewport">  
+          <video autoplay preload class="vid_properties" width="320" height="50" id='video_r'>
+              <source src="img/TheJoker-MV_Banner_v5.mp4"type="video/mp4" /> 
+          </video>   
+        </div>         
+      </section>    
+    </nav>
+ 
+    <!-- Aside left header -->
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><a href="index.html">The Joker</a></li>
+        <li><a href="topten.html">Topp 10</a></li>
+        <li><a href="profile.html">Lägg till</a></li>
+        <li><a href="login.html">LOGIN</a></li>
+        <li><a href="register.html">Registrera</a></li>
+      </ul>
+    </aside>  
+      
+    <section class="main-section">  
+        <div class="row">
+            <hr>
+            <h3 class="text-center">Lägg till i din profil !</h3>  
+            <div class="large-10 large-centered columns">  
+            <hr>
+            <h3><img src="http://placehold.it/30x30"> Spike</h3> 
+            <ul>
+              <li>
+                <h4>Här kan du lägga till meddelande i message.</h4>
+              </li>
+               <li>
+                <h4>För att kika på meddelandena klicka på pilarna i Joke listan.</h4>
+              </li>
+               <li>
+                <h4>För att Editera eller Tag bort gör det i meddelande i Joke listan.</h4>
+              </li>
+            </ul>
+              <hr>
+            </div>
+        </div> 
+        
+        <div class="row">
+            <div class="large-10 large-centered columns">
+            <div class="message-input grid-content collapse shrink">
+              <span class="inline-label">
+                <input type="text" placeholder="Message">
+                <a href="#" class="button">Send</a>
+              </span>
+                </div>
+            <ul class="accordion" data-accordion>
+              <li class="accordion-navigation">
+                <a href="#panel1a">Spike3</a>
+                <div id="panel1a" class="content active">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    <a href="#"><i class="fi-pencil" style="font-size:20px"></i></a>
+                    <a href="#"><i class="fi-trash" style="font-size:20px"></i></a>
+                </div>
+              </li>
+              <li class="accordion-navigation">
+                <a href="#panel2a">Spike2</a>
+                <div id="panel2a" class="content">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                <a href="#"><i class="fi-pencil" style="font-size:20px"></i></a>
+                <a href="#"><i class="fi-trash" style="font-size:20px"></i></a>
+                </div>
+              </li>
+              <li class="accordion-navigation">
+                <a href="#panel3a">Spike1</a>
+                <div id="panel3a" class="content">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                <a href="#"><i class="fi-pencil" style="font-size:20px"></i></a>
+                <a href="#"><i class="fi-trash" style="font-size:20px"></i></a>
+                </div>
+              </li>
+            </ul>
+        </div>            
+     </section> <!-- end - main-section --> 
+    
+    <footer style="position: fixed;"> 
+      <div class="row">
+        <h4 class="text-center" style="color:#ffffff;">Kontaktinfo: info@thejoker.se</h4> 
+      </div>
+    </footer> 
+        
+     <a class="exit-off-canvas"></a>
+  </div> <!-- end -inner-wrap -->
+</div> <!-- end - off-canvas-wrap -->
+      
+    
+
+    <script>
+      var myApp = angular.module("myApp", ["firebase"]);
+
+      myApp.controller("MyController", ["$scope", "$firebaseArray",
+        function($scope, $firebaseArray) {
+          var ref = new Firebase("https://joker-app.firebaseio.com/");
+          $scope.messages = $firebaseArray(ref);
+
+          //ADD MESSAGE METHOD
+          $scope.addMessage = function(e) {
+
+            //LISTEN FOR RETURN KEY
+            if (e.keyCode === 13 && $scope.msg) {
+              //ALLOW CUSTOM OR ANONYMOUS USER NAMES
+              var name = $scope.name || "anonymous";
+          $scope.messages.$add({ from: name, body: $scope.msg });
+              //RESET MESSAGE
+              $scope.msg = "";
+            }
+          }
+        }
+      ]);
+    </script>
+    <script src="js/resize_vid.js"></script>   
+    <script src="scripts/firebase.js"></script>
+    <script src="scripts/firebase.js"></script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
